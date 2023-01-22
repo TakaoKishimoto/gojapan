@@ -1,14 +1,28 @@
 import { FC } from 'react';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ForgotPassword from 'pages/ForgotPassword';
+import Home from 'pages/Home';
+import Offers from 'pages/Offers';
+import Profile from 'pages/Profile';
+import SignIn from 'pages/SignIn';
+import SignUp from 'pages/SignUp';
 
-const title = import.meta.env.VITE_APP_TITLE;
-console.dir(import.meta.env);
+import './App.css';
 
 const App: FC = () => {
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline">{title}</h1>
-    </div>
+    <>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/profile" element={<Profile />}></Route>
+          <Route path="/sign-in" element={<SignIn />}></Route>
+          <Route path="/sign-up" element={<SignUp />}></Route>
+          <Route path="/forgot-password" element={<ForgotPassword />}></Route>
+          <Route path="/offers" element={<Offers />}></Route>
+        </Routes>
+      </Router>
+    </>
   );
 };
 
